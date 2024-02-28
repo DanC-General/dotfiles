@@ -1,5 +1,6 @@
 # vimrc
 Vim configs
+## Install 
 
 ## Shortcuts 
 j- Down line 
