@@ -1,0 +1,28 @@
+set autoindent
+
+set tabstop=4
+
+set hlsearch
+
+set ignorecase
+
+syntax enable
+
+set wrap
+
+set ruler
+
+set relativenumber
+
+set noerrorbells
+
+set mouse=a
+
+set title
+
+set foldmethod=indent
+
+set backspace=indent,eol,start
+
+set history=1000
+
