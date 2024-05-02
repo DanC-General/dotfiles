@@ -26,7 +26,7 @@ if [ $CHANGE = false ]; then
     exit
   fi 
 fi 
-git add *
+git add .
 git commit -m "$MESSAGE"
 if [ $PUSH = true ]; then 
   git push
