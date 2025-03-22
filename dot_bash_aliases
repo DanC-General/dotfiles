@@ -27,3 +27,4 @@ cdl() {
 	ls -a 
 }
 alias boot_logs='(systemd-analyze && systemd-analyze blame)' 
+alias vim="nvim"
