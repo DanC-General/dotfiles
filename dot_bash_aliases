@@ -13,6 +13,13 @@ alias kcdp='kc describe pod'
 alias kcp='kc get pods' 
 alias kcl='kc logs' 
 alias kc_test_pod='kubectl run -i --tty --rm debug --image=busybox --restart=Never -- sh'
+va() { 
+	if [[ -d venv ]]; then
+		source venv/bin/activate
+	else
+		source ~/venv/bin/activate
+	fi
+}
 kce(){ 
 	if [ -z $1 ]; then
 		echo "Requires the name of pod to execute the shell in." 

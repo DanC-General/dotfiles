@@ -17,6 +17,13 @@ vim.keymap.set("n", "<C-f>", "<leader>f")
 vim.keymap.set("n", "<C-e>", "<leader>e")
 vim.keymap.set({ "n", "i" }, "<leader>/", "gcc")
 vim.keymap.set("v", "<leader>/", "gc")
+vim.keymap.set("n", "1", "$")
+vim.keymap.set("n", "<leader>N", "<ESC>:Neotree<CR>")
+-- Tab controls
+vim.keymap.set("n", "<leader>th", "<ESC>:tabp<CR>")
+vim.keymap.set("n", "<leader>tt", "<ESC>:tabnew<CR>")
+vim.keymap.set("n", "<leader>tl", "<ESC>:tabn<CR>")
+
 local operator_rhs = function()
 	return require("vim._comment").operator()
 end
@@ -949,7 +956,42 @@ require("lazy").setup({
 			"MunifTanjim/nui.nvim",
 			-- {"3rd/image.nvim", opts = {}}, -- Optional image support in preview window: See `# Preview Mode` for more information
 		},
+		opts = {
+			event_handlers = {
+				event = "neo_tree_buffer_enter",
+				handler = function()
+					vim.opt_local.relativenumber = true
+				end,
+			},
+		},
 	},
+	{
+		"rmagatti/auto-session",
+		lazy = false,
+
+		---enables autocomplete for opts
+		---@module "auto-session"
+		---@type AutoSession.Config
+		opts = {
+			suppressed_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
+			post_restore_cmds = {
+				function()
+					for i = 1, vim.fn.tabpagenr("$") do
+						vim.cmd("tabnext " .. i) -- Switch to tab `i`
+						-- print(
+						require("neo-tree.command").execute({
+							action = "focus",
+							source = "filesystem",
+							position = "left",
+							dir = vim.fn.getcwd(), -- Restore Neo-tree in the correct directory
+						})
+					end
+				end,
+			},
+			-- log_level = 'debug',
+		},
+	},
+	--
 	-- The following comments only work if you have downloaded the kickstart repo, not just copy pasted the
 	-- init.lua. If you want these files, they are in the repository, so you can just download them and
 	-- place them in the correct locations.
@@ -998,5 +1040,5 @@ require("lazy").setup({
 	},
 })
 -- Run on startup
-vim.cmd("silent split term://bash")
-vim.cmd("silent Neotree")
+-- vim.cmd("silent split term://bash")
+-- vim.cmd("silent Neotree")
