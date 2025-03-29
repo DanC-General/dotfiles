@@ -3,14 +3,6 @@
 set -euo pipefail
 # Suppress Ctrl^C printing
 stty -echoctl 
-usage() { 
-	echo "$0 [-p <variable>]"
-	exit 1
-}
-exit_handler() {
-	echo "Quitting..."
-	exit 2 
-}
 black='\033[0;30m'        # Black
 red='\033[0;31m'          # Red
 green='\033[0;32m'        # Green
@@ -22,6 +14,17 @@ white='\033[0;37m'        # White
 pcol() { 
 	local colour=$2
 	echo -e "$2$1$white"
+}
+perr() { 
+	echo -e "$red$1$white" 1>&2
+}
+usage() { 
+	perr "$0 [-c (create) | -s (start) | -d (destroy) | -r (restart)]" $yellow
+	exit 0
+}
+exit_handler() {
+	perr "Quitting..." $red
+	exit 1 
 }
 # Handle Ctrl^C 
 trap exit_handler SIGINT
@@ -40,4 +43,3 @@ done
 # indexed_arr=( "v1" "v2" "v3" ) 
 # declare -A assoc_array
 # assoc_arr=(["k1"]="v1" ["k2"]="v2" ["k3"]="v3" )
-
