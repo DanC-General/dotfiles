@@ -1,5 +1,7 @@
 #!/bin/bash
+# Exit on command failure (-e), access of unset variable (-u), if any command in pipe fails (-o pipefail)
 set -euo pipefail
+# Suppress Ctrl^C printing
 stty -echoctl 
 usage() { 
 	echo "$0 [-p <variable>]"
@@ -9,8 +11,10 @@ exit_handler() {
 	echo "Quitting..."
 	exit 2 
 }
+# Handle Ctrl^C 
 trap exit_handler SIGINT
 
+# Handle command line arguments
 while getopts ":p:" "params"; do
 	case ${params} in 
 		p ) pm="${OPTARG}";;
