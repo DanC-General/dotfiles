@@ -3,6 +3,10 @@ vim.opt.autoindent = true
 
 -- Use system clipboard
 vim.opt.clipboard = "unnamed"
+vim.keymap.set({ "n", "x" }, "cp", '"+y')
+vim.keymap.set({ "n", "x" }, "cv", '"+p')
+-- Delete without changing the registers
+vim.keymap.set({ "n", "x" }, "x", '"_x')
 
 -- Set leader key to Space
 vim.g.mapleader = " "
@@ -17,7 +21,7 @@ vim.keymap.set("n", "<C-f>", "<leader>f")
 vim.keymap.set("n", "<C-e>", "<leader>e")
 vim.keymap.set({ "n", "i" }, "<leader>/", "gcc")
 vim.keymap.set("v", "<leader>/", "gc")
-vim.keymap.set("n", "1", "$")
+vim.keymap.set("n", "-", "$")
 vim.keymap.set("n", "<leader>N", "<ESC>:Neotree<CR>")
 -- Tab controls
 vim.keymap.set("n", "<leader>th", "<ESC>:tabp<CR>")
@@ -704,10 +708,20 @@ require("lazy").setup({
 			formatters_by_ft = {
 				lua = { "stylua" },
 				-- Conform can also run multiple formatters sequentially
+				c = { "clang_format" },
 				python = { "isort", "black" },
+				rust = { "rustfmt", lsp_format = "fallback" },
 				--
 				-- You can use 'stop_after_first' to run the first available formatter from the list
 				-- javascript = { "prettierd", "prettier", stop_after_first = true },
+			},
+			formatters = {
+				clang_format = {
+					prepend_args = { "--style=file", "--fallback-style=LLVM" },
+				},
+				shfmt = {
+					prepend_args = { "-i", "4" },
+				},
 			},
 		},
 	},
@@ -917,6 +931,7 @@ require("lazy").setup({
 				"vim",
 				"vimdoc",
 				"python",
+				"rust",
 			},
 			-- Autoinstall languages that are not installed
 			auto_install = true,
@@ -977,7 +992,7 @@ require("lazy").setup({
 			post_restore_cmds = {
 				function()
 					for i = 1, vim.fn.tabpagenr("$") do
-						vim.cmd("tabnext " .. i) -- Switch to tab `i`
+						vim.cmd("tabnext " .. (vim.fn.tabpagenr("$") + 1 - i)) -- Switch to tab `i`
 						-- print(
 						require("neo-tree.command").execute({
 							action = "focus",
