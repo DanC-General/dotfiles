@@ -1,7 +1,7 @@
 import os
 import sys
 import logging
-from misc import bcolors, pwarn, createCurDir
+from python_proj.misc import bcolors, pwarn, createCurDir
 
 # Set up logging
 

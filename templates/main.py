@@ -2,8 +2,8 @@
 import logging
 import argparse
 import datetime as dt
-from custom_logging import init_logger
-from misc import (
+from python_proj.custom_logging import init_logger
+from python_proj.misc import (
     bcolors,
     phead,
     plog,
@@ -23,13 +23,19 @@ def makeArgs() -> argparse.Namespace:
         description="Program allowing execution of arbitrary commands and result collection from remote SSH hosts.",
     )
 
-    # parser.add_argument(
-    #     "-o",
-    #     "--output-directory",
-    #     default="data",
-    #     help="Location for output files.",
-    # )
+    parser.add_argument(
+        "-d",
+        "--directory",
+        default="data",
+        help="Location of output files.",
+    )
 
+    parser.add_argument(
+        "-d",
+        "--debug",
+        help="Enables debug output.",
+        action="store_true",
+    )
     return parser.parse_args()
 
 
