@@ -19,7 +19,7 @@ vim.keymap.set("n", "<leader>b", "<Esc>:split term://bash<CR>")
 vim.keymap.set("n", "<leader>e", "<Esc>")
 vim.keymap.set("n", "<C-f>", "<leader>f")
 vim.keymap.set("n", "<C-e>", "<leader>e")
-vim.keymap.set({ "n", "i" }, "<leader>/", "gcc")
+vim.keymap.set({ "n" }, "<leader>/", "gcc")
 vim.keymap.set("v", "<leader>/", "gc")
 vim.keymap.set("n", "-", "$")
 vim.keymap.set("n", "<leader>N", "<ESC>:Neotree<CR>")
@@ -1006,6 +1006,25 @@ require("lazy").setup({
 			-- log_level = 'debug',
 		},
 	},
+	{
+		"iamcco/markdown-preview.nvim",
+		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+		ft = { "markdown" },
+		build = function()
+			vim.fn["mkdp#util#install"]()
+		end,
+	},
+	{
+		"OXY2DEV/markview.nvim",
+		lazy = false,
+
+		-- For blink.cmp's completion
+		-- source
+		-- dependencies = {
+		--     "saghen/blink.cmp"
+		-- },
+	},
+
 	--
 	-- The following comments only work if you have downloaded the kickstart repo, not just copy pasted the
 	-- init.lua. If you want these files, they are in the repository, so you can just download them and
