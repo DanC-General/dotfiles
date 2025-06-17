@@ -46,3 +46,6 @@ vim.keymap.set({ "n", "i" }, "<Down>", "<NOP>", { noremap = true })
 vim.keymap.set({ "n", "i" }, "<Left>", "<NOP>", { noremap = true })
 vim.keymap.set({ "n", "i" }, "<Right>", "<NOP>", { noremap = true })
 vim.keymap.set("t", "jj", "<C-\\><C-n>")
+
+vim.keymap.set("n", "<leader>9", "<C-W>v")
+vim.keymap.set("n", "<leader>0", "<C-W>s")

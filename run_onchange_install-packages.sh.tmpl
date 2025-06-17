@@ -1,0 +1,20 @@
+#!/bin/sh 
+set -xeu
+{{ if eq .chezmoi.os "linux" -}}
+sudo apt install ripgrep
+sudo apt-get install -y ninja-build gettext cmake curl build-essential git
+{{ else if eq .chezmoi.os "opensuse" -}}
+sudo zypper install ripgrep
+sudo zypper install ninja cmake gcc-c++ gettext-tools curl git
+{{ else -}} 
+echo "Not a supported OS {{.chezmoi.os}} [linux | opensuse]"
+exit 0
+{{ end -}}
+
+pushd ~
+git clone https://github.com/neovim/neovim
+cd neovim
+git checkout stable
+make CMAKE_BUILD_TYPE=RelWithDebInfo
+sudo make install
+popd
