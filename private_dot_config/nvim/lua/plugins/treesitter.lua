@@ -20,6 +20,8 @@ return {
 			"vimdoc",
 			"python",
 			"rust",
+			"typst",
+			"yaml",
 		},
 		-- Autoinstall languages that are not installed
 		auto_install = true,
