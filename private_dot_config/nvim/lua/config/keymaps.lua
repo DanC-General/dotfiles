@@ -8,7 +8,6 @@ vim.keymap.set({ "n", "x" }, "x", '"_x')
 -- Set leader key to Space
 vim.g.mapleader = " "
 
--- Key mappings
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 vim.keymap.set("i", "jj", "<Esc>") -- Exit insert mode with jj
 vim.keymap.set("n", "<leader>w", "<C-W>") -- Window commands with leader+w
@@ -19,7 +18,12 @@ vim.keymap.set("n", "<C-e>", "<leader>e")
 vim.keymap.set({ "n" }, "<leader>/", "gcc")
 vim.keymap.set("v", "<leader>/", "gc")
 vim.keymap.set("n", "-", "$")
-vim.keymap.set("n", "<leader>N", "<ESC>:Neotree<CR>")
+
+-- Toggle hls
+vim.keymap.set("n", "<leader>h", function()
+	vim.o.hlsearch = not vim.o.hlsearch
+end, { desc = "Toggle hlsearch" })
+
 -- Tab controls
 vim.keymap.set("n", "<leader>th", "<ESC>:tabp<CR>")
 vim.keymap.set("n", "<leader>tt", "<ESC>:tabnew<CR>")
@@ -49,3 +53,7 @@ vim.keymap.set("t", "jj", "<C-\\><C-n>")
 
 vim.keymap.set("n", "<leader>9", "<C-W>v")
 vim.keymap.set("n", "<leader>0", "<C-W>s")
+
+-- Plugin keybinds
+vim.keymap.set("n", "<leader>N", "<ESC>:Neotree<CR>")
+vim.keymap.set("n", "<leader>o", "<ESC>:Oil<CR>")
