@@ -1,5 +1,6 @@
 return { -- Autoformat
 	"stevearc/conform.nvim",
+	dependencies = { "nvim-lua/plenary.nvim" },
 	event = { "BufWritePre" },
 	cmd = { "ConformInfo" },
 	keys = {
@@ -13,7 +14,7 @@ return { -- Autoformat
 		},
 	},
 	opts = {
-		notify_on_error = false,
+		notify_on_error = true,
 		format_on_save = function(bufnr)
 			-- Disable "format_on_save lsp_fallback" for languages that don't
 			-- have a well standardized coding style. You can add additional
@@ -36,10 +37,16 @@ return { -- Autoformat
 			c = { "clang_format" },
 			python = { "isort", "black" },
 			rust = { "rustfmt", lsp_format = "fallback" },
+			javascript = { "prettierd", "prettier" },
+			typescript = { "prettierd", "prettier" },
+			javascriptreact = { "prettierd", "prettier" },
+			typescriptreact = { "prettierd", "prettier" },
+			json = { "prettierd", "prettier" },
+			css = { "prettierd", "prettier" },
 			--
 			-- You can use 'stop_after_first' to run the first available formatter from the list
-			-- javascript = { "prettierd", "prettier", stop_after_first = true },
 		},
+		prefer_local = true,
 		formatters = {
 			clang_format = {
 				prepend_args = { "--style=file", "--fallback-style=LLVM" },

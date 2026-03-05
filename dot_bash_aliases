@@ -15,7 +15,7 @@ alias kcl='kc logs'
 alias kc_test_pod='kubectl run -i --tty --rm debug --image=alpine --restart=Never -- sh'
 alias boot_logs='(systemd-analyze && systemd-analyze blame)' 
 alias vim="nvim"
-alias rm="rm --interactive=once --preserve-root=all"
+alias rm="rm -I -v --preserve-root=all"
 # alias cd="1>/dev/null pushd"
 # alias b="1>/dev/null pushd"
 alias b="1>/dev/null cd -"
