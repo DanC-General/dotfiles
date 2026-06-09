@@ -15,9 +15,8 @@ vim.keymap.set("n", "<leader>b", "<Esc>:split term://bash<CR>")
 vim.keymap.set("n", "<leader>e", "<Esc>")
 vim.keymap.set("n", "<C-f>", "<leader>f")
 vim.keymap.set("n", "<C-e>", "<leader>e")
-vim.keymap.set({ "n" }, "<leader>/", "gcc")
-vim.keymap.set("v", "<leader>/", "gc")
-vim.keymap.set("n", "-", "$")
+vim.keymap.set({ "n", "v" }, "<leader>/", "gcc")
+-- vim.keymap.set("v", "<leader>/", "gc")
 
 -- Toggle hls
 vim.keymap.set("n", "<leader>h", function()
@@ -44,15 +43,11 @@ local textobject_rhs = function()
 end
 vim.keymap.set({ "o" }, "<leader>/", textobject_rhs, { desc = "Comment textobject" })
 
--- Disable arrow keys in normal mode
 vim.keymap.set({ "n", "i" }, "<Up>", "<NOP>", { noremap = true })
 vim.keymap.set({ "n", "i" }, "<Down>", "<NOP>", { noremap = true })
 vim.keymap.set({ "n", "i" }, "<Left>", "<NOP>", { noremap = true })
 vim.keymap.set({ "n", "i" }, "<Right>", "<NOP>", { noremap = true })
 vim.keymap.set("t", "jj", "<C-\\><C-n>")
-
-vim.keymap.set("n", "<leader>9", "<C-W>v")
-vim.keymap.set("n", "<leader>0", "<C-W>s")
 
 -- Plugin keybinds
 vim.keymap.set("n", "<leader>N", "<ESC>:Neotree<CR>")
