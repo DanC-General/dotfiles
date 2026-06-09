@@ -13,8 +13,8 @@ vim.keymap.set("i", "jj", "<Esc>") -- Exit insert mode with jj
 vim.keymap.set("n", "<leader>w", "<C-W>") -- Window commands with leader+w
 vim.keymap.set("n", "<leader>b", "<Esc>:split term://bash<CR>")
 vim.keymap.set("n", "<leader>e", "<Esc>")
-vim.keymap.set("n", "<C-f>", "<leader>f")
-vim.keymap.set("n", "<C-e>", "<leader>e")
+-- vim.keymap.set("n", "<C-f>", "<leader>f")
+-- vim.keymap.set("n", "<C-e>", "<leader>e")
 vim.keymap.set({ "n", "v" }, "<leader>/", "gcc")
 -- vim.keymap.set("v", "<leader>/", "gc")
 
@@ -50,5 +50,5 @@ vim.keymap.set({ "n", "i" }, "<Right>", "<NOP>", { noremap = true })
 vim.keymap.set("t", "jj", "<C-\\><C-n>")
 
 -- Plugin keybinds
-vim.keymap.set("n", "<leader>N", "<ESC>:Neotree<CR>")
+-- vim.keymap.set("n", "<leader>N", "<ESC>:Neotree<CR>")
 vim.keymap.set("n", "<leader>o", "<ESC>:Oil<CR>")

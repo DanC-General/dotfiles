@@ -22,7 +22,7 @@ return { -- Collection of various small independent plugins/modules
 				find = "fa", -- Find surrounding (to the right)
 				find_left = "Fa", -- Find surrounding (to the left)
 				highlight = "ha", -- Highlight surrounding
-				replace = "ra", -- Replace surrounding
+				replace = "ca", -- Replace surrounding
 
 				suffix_last = "l", -- Suffix to search with "prev" method
 				suffix_next = "n", -- Suffix to search with "next" method
