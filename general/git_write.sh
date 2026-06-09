@@ -2,6 +2,7 @@
 MESSAGE="Default commit - forgot message"
 CHANGE=false
 PUSH=false
+
 while getopts "m:p" opt; do
   case ${opt} in
     m)
