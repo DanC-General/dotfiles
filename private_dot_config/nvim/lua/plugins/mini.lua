@@ -17,15 +17,15 @@ return { -- Collection of various small independent plugins/modules
 		-- - sr)'  - [S]urround [R]eplace [)] [']
 		require("mini.surround").setup({
 			mappings = {
-				add = "sa", -- Add surrounding in Normal and Visual modes
-				delete = "da", -- Delete surrounding
-				find = "fa", -- Find surrounding (to the right)
-				find_left = "Fa", -- Find surrounding (to the left)
-				highlight = "ha", -- Highlight surrounding
-				replace = "ca", -- Replace surrounding
+				add = "<leader>es", -- Add surrounding in Normal and Visual modes
+				delete = "<leader>ed", -- Delete surrounding
+				find = "<leader>ef", -- Find surrounding (to the right)
+				find_left = "<leader>eF", -- Find surrounding (to the left)
+				highlight = "<leader>eh", -- Highlight surrounding
+				replace = "<leader>ec", -- Replace surrounding
 
-				suffix_last = "l", -- Suffix to search with "prev" method
-				suffix_next = "n", -- Suffix to search with "next" method
+				suffix_last = "<leader>el", -- Suffix to search with "prev" method
+				suffix_next = "<leader>en", -- Suffix to search with "next" method
 			},
 			n_lines = 500,
 		})

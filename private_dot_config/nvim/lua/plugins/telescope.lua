@@ -25,6 +25,8 @@ return {
 					i = {
 						["<c-enter>"] = "to_fuzzy_refine",
 						["jj"] = actions.close,
+						["<c-s>"] = actions.select_vertical,
+						["<c-h>"] = actions.select_horizontal,
 					},
 				},
 			},

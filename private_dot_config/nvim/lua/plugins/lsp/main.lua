@@ -63,7 +63,7 @@ return {
 				--  This is where a variable was first declared, or where a function is defined, etc.
 				--  To jump back, press <C-t>.
 				map("<leader>ld", require("telescope.builtin").lsp_definitions, "[L]SP Goto [D]efinition")
-				map("<leader>lD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
+				map("<leader>lD", vim.lsp.buf.declaration, "LSP [G]oto [D]eclaration")
 
 				-- Find references for the word under your cursor.
 				map("<leader>lr", require("telescope.builtin").lsp_references, "[L]SP Goto [R]eferences")
@@ -91,7 +91,7 @@ return {
 
 				-- Rename the variable under your cursor.
 				--  Most Language Servers support renaming across files, etc.
-				map("<leader>lr", vim.lsp.buf.rename, "[L]SP [R]ename")
+				map("<leader>lc", vim.lsp.buf.rename, "[L]SP [C]hange Name")
 
 				-- Execute a code action, usually your cursor needs to be on top of an error
 				-- or a suggestion from your LSP for this to activate.
