@@ -16,17 +16,6 @@ return { -- Collection of various small independent plugins/modules
 		-- - sd'   - [S]urround [D]elete [']quotes
 		-- - sr)'  - [S]urround [R]eplace [)] [']
 		require("mini.surround").setup({
-			mappings = {
-				add = "<leader>es", -- Add surrounding in Normal and Visual modes
-				delete = "<leader>ed", -- Delete surrounding
-				find = "<leader>ef", -- Find surrounding (to the right)
-				find_left = "<leader>eF", -- Find surrounding (to the left)
-				highlight = "<leader>eh", -- Highlight surrounding
-				replace = "<leader>ec", -- Replace surrounding
-
-				suffix_last = "<leader>el", -- Suffix to search with "prev" method
-				suffix_next = "<leader>en", -- Suffix to search with "next" method
-			},
 			n_lines = 500,
 		})
 		require("mini.pairs").setup({})

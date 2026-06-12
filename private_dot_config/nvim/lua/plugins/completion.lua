@@ -73,9 +73,9 @@ return { -- Autocompletion
 					cmp.abort()
 					fallback()
 				end,
-				["<tab>"] = function(fallback)
-					return vim.cmp.map({ "snippet_forward", "ai_nes", "ai_accept" }, fallback)()
-				end,
+				-- ["<tab>"] = function(fallback)
+				-- 	return vim.cmp.map({ "snippet_forward", "ai_nes", "ai_accept" }, fallback)()
+				-- end,
 
 				["<leader>l"] = cmp.mapping(function()
 					if luasnip.expand_or_locally_jumpable() then

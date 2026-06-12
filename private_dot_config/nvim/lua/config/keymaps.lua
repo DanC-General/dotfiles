@@ -24,9 +24,9 @@ vim.keymap.set("n", "<leader>h", function()
 end, { desc = "Toggle hlsearch" })
 
 -- Tab controls
-vim.keymap.set("n", "<leader>th", "<ESC>:tabp<CR>")
+vim.keymap.set("n", "<leader>tp", "<ESC>:tabp<CR>")
 vim.keymap.set("n", "<leader>tt", "<ESC>:tabnew<CR>")
-vim.keymap.set("n", "<leader>tl", "<ESC>:tabn<CR>")
+vim.keymap.set("n", "<leader>tn", "<ESC>:tabn<CR>")
 
 local operator_rhs = function()
 	return require("vim._comment").operator()
@@ -50,5 +50,5 @@ vim.keymap.set({ "n", "i" }, "<Right>", "<NOP>", { noremap = true })
 vim.keymap.set("t", "jj", "<C-\\><C-n>")
 
 -- Plugin keybinds
--- vim.keymap.set("n", "<leader>N", "<ESC>:Neotree<CR>")
+vim.keymap.set("n", "<leader>N", "<ESC>:Neotree<CR>")
 vim.keymap.set("n", "<leader>o", "<ESC>:Oil<CR>")
