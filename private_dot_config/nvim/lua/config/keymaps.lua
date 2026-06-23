@@ -50,5 +50,5 @@ vim.keymap.set({ "n", "i" }, "<Right>", "<NOP>", { noremap = true })
 vim.keymap.set("t", "jj", "<C-\\><C-n>")
 
 -- Plugin keybinds
-vim.keymap.set("n", "<leader>N", "<ESC>:Neotree<CR>")
+vim.keymap.set("n", "<leader>N", "<ESC>:Neotree float<CR>")
 vim.keymap.set("n", "<leader>o", "<ESC>:Oil<CR>")
