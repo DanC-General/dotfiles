@@ -9,11 +9,12 @@ return {
 			type = "directory",
 			limit = 1,
 		})[1]
+
 		require("coverage").setup({
 			auto_reload = true,
-			lang = { cs_coverage and { cs = {
-				coverage_file = coverage_file,
-			} } or {} },
+			lang = cs_coverage and { cs = {
+				coverage_file = cs_coverage .. "/lcov.info",
+			} } or {},
 		})
 
 		vim.keymap.set("n", "<leader>ct", "<ESC>:CoverageToggle<CR>", {
