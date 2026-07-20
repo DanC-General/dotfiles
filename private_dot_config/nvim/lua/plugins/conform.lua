@@ -43,6 +43,7 @@ return { -- Autoformat
 			typescriptreact = { "prettierd", "prettier" },
 			json = { "prettierd", "prettier" },
 			css = { "prettierd", "prettier" },
+			cs = { "csharpier" },
 			--
 			-- You can use 'stop_after_first' to run the first available formatter from the list
 		},

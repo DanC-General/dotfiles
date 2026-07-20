@@ -29,6 +29,12 @@ return {
 						["<c-h>"] = actions.select_horizontal,
 					},
 				},
+				file_ignore_patterns = {
+					"node_modules",
+					".git",
+					"dist",
+					"build",
+				},
 			},
 			pickers = {
 				find_files = { hidden = true, no_ignore = true },

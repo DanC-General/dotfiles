@@ -89,6 +89,7 @@ return {
 					"[L]SP [W]orkspace Symbols"
 				)
 
+				map("<leader>le", require("telescope.builtin").diagnostics, "LSP [E]rrors")
 				-- Rename the variable under your cursor.
 				--  Most Language Servers support renaming across files, etc.
 				map("<leader>lc", vim.lsp.buf.rename, "[L]SP [C]hange Name")
