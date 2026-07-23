@@ -11,7 +11,12 @@ return {
 	lazy = true,
 	---@module "neo-tree"
 	---@type neotree.Config?
-
+	keys = {
+		{
+			"<leader>N",
+			"<cmd>Neotree float<CR>",
+		},
+	},
 	opts = {
 		event_handlers = {
 			{
