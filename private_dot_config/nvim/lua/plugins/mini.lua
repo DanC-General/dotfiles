@@ -19,6 +19,7 @@ return { -- Collection of various small independent plugins/modules
 			n_lines = 500,
 		})
 		require("mini.pairs").setup({})
+		require("mini.test").setup({})
 		require("mini.operators").setup({})
 		-- Simple and easy statusline.
 		--  You could remove this setup call if you don't like it,

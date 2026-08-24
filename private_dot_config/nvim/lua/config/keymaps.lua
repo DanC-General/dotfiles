@@ -41,6 +41,7 @@ vim.keymap.set("n", "<leader>/", line_rhs, { expr = true, desc = "Toggle comment
 local textobject_rhs = function()
 	require("vim._comment").textobject()
 end
+
 vim.keymap.set({ "o" }, "<leader>/", textobject_rhs, { desc = "Comment textobject" })
 
 vim.keymap.set({ "n", "i" }, "<Up>", "<NOP>", { noremap = true })
@@ -49,6 +50,11 @@ vim.keymap.set({ "n", "i" }, "<Left>", "<NOP>", { noremap = true })
 vim.keymap.set({ "n", "i" }, "<Right>", "<NOP>", { noremap = true })
 vim.keymap.set("t", "jj", "<C-\\><C-n>")
 
+vim.keymap.set("n", ")", "<cmd>split<CR>")
+vim.keymap.set("n", "(", "<cmd>vsplit<CR>")
+
 -- Plugin keybinds
 vim.keymap.set("n", "<leader>N", "<ESC>:Neotree float<CR>")
 vim.keymap.set("n", "<leader>o", "<ESC>:Oil<CR>")
+vim.keymap.set("n", "<leader>tm", "<ESC>:lua MiniTest.run()<CR>")
+vim.keymap.set("n", "<leader>r", "<ESC>:Lazy reload simple-cov<CR>")
