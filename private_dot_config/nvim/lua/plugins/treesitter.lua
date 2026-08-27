@@ -14,6 +14,7 @@ return {
 			"lua",
 			"luadoc",
 			"markdown",
+			"mermaid",
 			"markdown_inline",
 			"query",
 			"vim",

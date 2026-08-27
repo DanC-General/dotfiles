@@ -22,9 +22,6 @@ alias du="docker compose up"
 alias dd="docker compose down" 
 alias db="docker compose up --build"
 
-# alias cd="1>/dev/null pushd"
-# alias b="1>/dev/null pushd"
-alias b="1>/dev/null cd -"
 va() { 
 	if [[ -d venv ]]; then
 		source venv/bin/activate

@@ -127,5 +127,17 @@ if [[ -d "$HOME/.cargo" ]]; then
 		. "$HOME/.cargo/env" 
 	fi
 fi
+export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - bash)"
+eval "$(pyenv virtualenv-init -)"
 
-export PATH="${PATH}:/opt/nvim-linux-x86_64/bin";
+
+
+# fnm
+FNM_PATH="/home/et/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="$FNM_PATH:$PATH"
+  eval "$(fnm env --shell bash)"
+fi

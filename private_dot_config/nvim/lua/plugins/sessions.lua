@@ -7,21 +7,25 @@ return {
 	---@module "auto-session"
 	---@type AutoSession.Config
 	opts = {
-		suppressed_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
-		post_restore_cmds = {
-			function()
-				for i = 1, vim.fn.tabpagenr("$") do
-					vim.cmd("tabnext " .. (vim.fn.tabpagenr("$") + 1 - i)) -- Switch to tab `i`
-					-- print(
-					require("neo-tree.command").execute({
-						action = "focus",
-						source = "filesystem",
-						position = "left",
-						dir = vim.fn.getcwd(), -- Restore Neo-tree in the correct directory
-					})
-				end
-			end,
+		suppressed_dirs = { "~/Downloads" },
+		close_unsupported_windows = true,
+
+		autosave_ignore_buftypes = {
+			"quickfix",
+			"nofile",
+			"prompt",
+			"neo-tree",
+			"neotree",
 		},
-		-- log_level = 'debug',
+		autosave_ignore_filetypes = {
+			"dapui_scopes",
+			"dapui_stacks",
+			"dapui_breakpoints",
+			"dapui_watches",
+			"dap-repl",
+			"neo-tree",
+			"neotree",
+		},
+		bypass_session_save_file_types = { "neo-tree", "neotree" },
 	},
 }
