@@ -16,6 +16,12 @@ alias kc_test_pod='kubectl run -i --tty --rm debug --image=alpine --restart=Neve
 alias boot_logs='(systemd-analyze && systemd-analyze blame)' 
 alias vim="nvim"
 alias rm="rm --interactive=once --preserve-root=all"
+
+alias dl="docker container ls" 
+alias du="docker compose up" 
+alias dd="docker compose down" 
+alias db="docker compose up --build"
+
 # alias cd="1>/dev/null pushd"
 # alias b="1>/dev/null pushd"
 alias b="1>/dev/null cd -"

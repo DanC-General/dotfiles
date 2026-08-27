@@ -120,8 +120,12 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
 if [[ -d "$HOME/.cargo" ]]; then 
-	export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
-	. "$HOME/.cargo/env"
+	export PATH="${KREW_ROOT:-$HOME/.krew}/bin:${PATH}";
+	if [[ -f "$HOME/.cargo/env" ]]; then 
+		. "$HOME/.cargo/env" 
+	fi
 fi
-export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
+
+export PATH="${PATH}:/opt/nvim-linux-x86_64/bin";
